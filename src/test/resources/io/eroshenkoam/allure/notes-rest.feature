@@ -1,6 +1,7 @@
 #language: en
 @allure.label.layer:api
 @allure.label.owner:eroshenkoam
+@allure.label.microservice:API_V1
 Feature: Notes
 
   @smoke

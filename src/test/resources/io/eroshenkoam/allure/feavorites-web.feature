@@ -1,11 +1,13 @@
 #language: en
 @allure.label.layer:web
 @allure.label.owner:baev
+@allure.label.microservice:API_V2
 Feature: Favorites
 
   @allure.id:123
   @smoke @regress
-  @allure.label.jira:AE-1,AE-2
+  @allure.label.jira:AE-1
+  @allure.label.jira:AE-2
   Scenario: Adding to favorites for authorized user
     When I open notes page
     And I create note with content "hello"

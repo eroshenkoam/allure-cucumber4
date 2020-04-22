@@ -1,6 +1,7 @@
 #language: en
 @allure.label.layer:web
 @allure.label.owner:eroshenkoam
+@allure.label.microservice:API_V1
 Feature: Notes
 
   @regress @critical
