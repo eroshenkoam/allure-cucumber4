@@ -18,25 +18,35 @@ import static org.junit.Assert.assertEquals;
  */
 public class WebSteps {
 
-    @When("^I open notes page$")
-    public void openNotesPage() {
+    @When("^I open labels page$")
+    public void openLabelsPage() {
         attachPageSource();
         maybeThrowElementNotFoundException();
     }
 
-    @And("I create note with content {string}")
-    public void createNoteWithText(final String text) {
+
+    @When("I open milestones page")
+    public void openMilestonesPage() {
+
+    }
+
+    @And("I create label with title {string}")
+    public void createLabelWithTitle(final String title) {
         maybeThrowElementNotFoundException();
     }
 
-    @And("I delete note with content {string}")
-    public void deleteNoteWithText(final String text) {
-        maybeThrowAssertionException(text);
+    @And("I create milestone with title {string}")
+    public void createMilestoneWithTitle(String title) {
+
+    }
+    @And("I delete label with title {string}")
+    public void deleteLabelWithTitle(final String title) {
+        maybeThrowAssertionException(title);
     }
 
-    @Then("I should see note with content {string}")
-    public void notesShouldContainsNoteWithText(final String text) {
-        maybeThrowAssertionException(text);
+    @Then("I should see issue with label title {string}")
+    public void labelsShouldContainsNoteWithText(final String title) {
+        maybeThrowAssertionException(title);
     }
 
     @Then("I should not see note with content {string}")
@@ -45,13 +55,33 @@ public class WebSteps {
 
     }
 
-    @When("I open advertisement page {int}")
-    public void openAdPage(final int id) {
+    @And("I delete milestone with title {string}")
+    public void deleteMilestoneWithTitle(String title) {
+    }
+
+    @Then("I should see milestone with title {string}")
+    public void shouldSeeMilestoneWithTitle(String title) {
+
+    }
+
+    @Then("I should not see milestone with content {string}")
+    public void shouldNotSeeMilestoneWithContent(String title) {
+
+    }
+
+    @When("I open issue with id {int}")
+    public void openIssuePage(final int id) {
         maybeThrowElementNotFoundException();
     }
 
-    @And("I add note with content {string} to advertisement")
-    public void addNoteToAdd(final String text) {
+    @And("I add label with title {string} to issue")
+    public void addLabelToIssue(final String text) {
+        maybeThrowElementNotFoundException();
+    }
+
+    @And("I filter issue by label title {string}")
+    public void filterIssueByLabel(final String title) {
+        attachPageSource();
         maybeThrowElementNotFoundException();
     }
 
@@ -72,8 +102,13 @@ public class WebSteps {
     }
 
     private void maybeThrowAssertionException(String text) {
-        if (isTimeToThrowException()) {
-            assertEquals(text, "another text");
+        try {
+            Thread.sleep(1000);
+            if (isTimeToThrowException()) {
+                assertEquals(text, "another text");
+            }
+        } catch (InterruptedException e) {
+            // do nothing test is dummy
         }
     }
 

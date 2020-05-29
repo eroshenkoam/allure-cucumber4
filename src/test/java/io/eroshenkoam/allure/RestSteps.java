@@ -7,27 +7,27 @@ import static io.qameta.allure.Allure.step;
 
 public class RestSteps {
 
-    @When("I create note with content {string} via api")
-    public void createNoteWithText(final String text) {
-        step("POST /api/notes");
+    @When("I create label with title {string} via api")
+    public void createLabelWithTitle(final String title) {
+        step("POST /repos/:owner/:repo/labels");
     }
 
-    @When("I delete note with content {string} via api")
-    public void deleteNoteWithText(final String text) {
-        step("GET /api/notes?text=" + text);
-        step("DELETE /api/notes/237");
+    @When("I delete label with title {string} via api")
+    public void deleteLabelWithTitle(final String title) {
+        step("GET /repos/:owner/:repo/labels?text=" + title);
+        step("DELETE /repos/:owner/:repo/labels/237");
     }
 
-    @Then("I should see note with content {string} via api")
-    public void notesShouldContainsNoteWithText(final String text) {
-        step("GET /api/notes?text=" + text);
-        step("GET /api/notes/834");
+    @Then("I should see label with title {string} via api")
+    public void labelsShouldContainsNoteWithText(final String text) {
+        step("GET /repos/:owner/:repo/labels?text=" + text);
+        step("GET /repos/:owner/:repo/labels/834");
     }
 
-    @Then("I should not see note with content {string} via api")
-    public void notesShouldNotContainsNoteWithText(final String text) {
-        step("GET /api/notes?text=" + text);
-        step("GET /api/notes/834");
+    @Then("I should not see label with content {string} via api")
+    public void labelsShouldNotContainsNoteWithText(final String text) {
+        step("GET /repos/:owner/:repo/labels?text=" + text);
+        step("GET /repos/:owner/:repo/labels/834");
     }
 
 }
