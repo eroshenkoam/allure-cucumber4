@@ -1,7 +1,7 @@
 #language: en
 @allure.label.layer:web
 @allure.label.owner:eroshenkoam
-@allure.label.page:/:owner/:repo/labels
+@allure.label.page:/{org}/{repo}/labels
 Feature: Labels
 
   @regress @critical

@@ -1,7 +1,7 @@
 #language: en
 @allure.label.layer:api
 @allure.label.owner:eroshenkoam
-@allure.label.url:/repos/:owner/:repo/labels
+@allure.label.url:/repos/{owner}/{repo}/labels
 Feature: Labels
 
   @smoke

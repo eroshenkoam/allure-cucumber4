@@ -1,7 +1,7 @@
 #language: en
 @allure.label.layer:web
 @allure.label.owner:baev
-@allure.label.page:/:owner/:repo/milestones
+@allure.label.page:/{org}/{repo}/milestones
 Feature: Milestones
 
   @smoke @regress
