@@ -4,7 +4,6 @@
 @allure.label.page:/:owner/:repo/milestones
 Feature: Milestones
 
-  @allure.id:123
   @smoke @regress
   @allure.label.jira:AE-1
   @allure.label.jira:AE-2
