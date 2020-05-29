@@ -1,5 +1,5 @@
 #language: en
-@allure.label.layer:api
+@allure.label.layer:rest
 @allure.label.owner:eroshenkoam
 @allure.label.url:/repos/{owner}/{repo}/labels
 Feature: Labels
