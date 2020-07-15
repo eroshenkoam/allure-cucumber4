@@ -39,6 +39,7 @@ public class WebSteps {
     public void createMilestoneWithTitle(String title) {
 
     }
+
     @And("I delete label with title {string}")
     public void deleteLabelWithTitle(final String title) {
         maybeThrowAssertionException(title);
@@ -113,9 +114,6 @@ public class WebSteps {
     }
 
     private boolean isTimeToThrowException() {
-        return new Random().nextBoolean()
-                && new Random().nextBoolean()
-                && new Random().nextBoolean()
-                && new Random().nextBoolean();
+        return new Random().nextBoolean() && new Random().nextBoolean();
     }
 }
