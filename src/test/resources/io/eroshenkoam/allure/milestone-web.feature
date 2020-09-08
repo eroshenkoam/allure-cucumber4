@@ -2,6 +2,8 @@
 @allure.label.layer:web
 @allure.label.lead:baev
 @allure.label.owner:eroshenkoam
+@allure.label.cpn:database
+@allure.label.cpn:api
 @allure.label.page:/{org}/{repo}/milestones
 Feature: Milestones
 
