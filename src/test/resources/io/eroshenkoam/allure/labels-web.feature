@@ -1,11 +1,11 @@
 #language: en
 @allure.label.layer:web
 @allure.label.owner:eroshenkoam
-@allure.label.page:/{org}/{repo}/labels
 Feature: Labels
 
   @regress @critical
   @allure.label.jira:AE-2
+  @allure.label.msrv:Billing
   Scenario: Create new label for authorized user
     When I open labels page
     And I create label with title "hello"
@@ -13,6 +13,7 @@ Feature: Labels
 
   @smoke
   @allure.label.jira:AE-1
+  @allure.label.msrv:Repository
   Scenario: Add label to existing issue for authorized user
     When I open issue with id 123123
     And I add label with title "hello" to issue
@@ -21,6 +22,7 @@ Feature: Labels
 
   @smoke
   @allure.label.jira:AE-1
+  @allure.label.msrv:Repository
   Scenario: Delete existing label for authorized user
     When I open labels page
     And I create label with title "hello"
