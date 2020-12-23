@@ -1,5 +1,7 @@
 package io.eroshenkoam.allure;
 
+import gherkin.pickles.PickleTable;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,6 +29,11 @@ public class WebSteps {
 
     @When("I open milestones page")
     public void openMilestonesPage() {
+
+    }
+
+    @When("I open secret page")
+    public void openSecretPage(final DataTable table) {
 
     }
 

@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(AllureCucumber.class)
 @CucumberOptions(plugin = {
-        "io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm",
+        "io.eroshenkoam.allure.AllureCucumber",
         "progress",
         "summary"
 })

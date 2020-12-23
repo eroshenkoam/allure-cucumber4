@@ -16,7 +16,10 @@ Feature: Milestones
   @allure.label.jira:AE-2
   @allure.label.msrv:Repository
   Scenario: Close existing milestone for authorized user
-    When I open milestones page
+    When I open secret page
+      | The Devil in the White City          | Erik Larson |
+      | The Lion, the Witch and the Wardrobe | C.S. Lewis  |
+      | In the Garden of Beasts              | Erik Larson |
     And I create milestone with title "hello"
     And I delete milestone with title "hello"
     Then I should not see milestone with content "hello"
