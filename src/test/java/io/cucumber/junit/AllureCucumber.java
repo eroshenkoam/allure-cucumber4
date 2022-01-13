@@ -3,9 +3,8 @@ package io.cucumber.junit;
 import cucumber.runtime.model.CucumberFeature;
 import gherkin.pickles.Pickle;
 import gherkin.pickles.PickleTag;
-import io.qameta.allure.ee.filter.FileTestPlanProvider;
-import io.qameta.allure.ee.filter.TestPlan;
-import io.qameta.allure.ee.filter.TestPlanTest;
+import io.qameta.allure.testfilter.FileTestPlanSupplier;
+import io.qameta.allure.testfilter.TestPlanV1_0;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.junit.runner.Description;
 import org.junit.runner.manipulation.Filter;
@@ -38,7 +37,9 @@ public class AllureCucumber extends Cucumber {
     }
 
     private Optional<Filter> getFilter(final FeatureRunner child) {
-        final Optional<TestPlan> testPlan = new FileTestPlanProvider().get();
+        final Optional<TestPlanV1_0> testPlan = new FileTestPlanSupplier().supply()
+                .map(TestPlanV1_0.class::isInstance)
+                .map(TestPlanV1_0.class::cast);
         try {
             final Object field = FieldUtils.readDeclaredField(child, CUCUMBER_FEATURE_FIELD, true);
             final Optional<CucumberFeature> feature = Optional.ofNullable(field)
@@ -58,10 +59,10 @@ public class AllureCucumber extends Cucumber {
         private static final String ID_NAME = "id";
         private static final Pattern ID_TAG = Pattern.compile("^@?allure\\.id[:=](?<id>.+)$");
 
-        private final TestPlan testPlan;
+        private final TestPlanV1_0 testPlan;
         private final CucumberFeature feature;
 
-        public AllureFilter(final CucumberFeature feature, final TestPlan testPlan) {
+        public AllureFilter(final CucumberFeature feature, final TestPlanV1_0 testPlan) {
             this.feature = feature;
             this.testPlan = testPlan;
         }
@@ -80,11 +81,11 @@ public class AllureCucumber extends Cucumber {
                 if (allureId.isPresent()) {
                     final String id = allureId.get();
                     return testPlan.getTests().stream()
-                            .map(TestPlanTest::getId)
+                            .map(TestPlanV1_0.TestCase::getId)
                             .anyMatch(id::equals);
                 } else {
                     return testPlan.getTests().stream()
-                            .map(TestPlanTest::getSelector)
+                            .map(TestPlanV1_0.TestCase::getSelector)
                             .anyMatch(selector::equals);
                 }
             }

@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <allure.version>2.13.3</allure.version>
+        <allure.version>2.17.2</allure.version>
         <aspectj.version>1.9.4</aspectj.version>
         <cucumber.version>4.8.1</cucumber.version>
     </properties>
@@ -18,6 +18,11 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-cucumber4-jvm</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-test-filter</artifactId>
             <version>${allure.version}</version>
         </dependency>
         <dependency>
@@ -46,11 +51,6 @@
             <artifactId>cucumber-junit</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-ee-filter</artifactId>
-            <version>3.28.3</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -96,12 +96,5 @@
         </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>qameta</id>
-            <url>https://dl.bintray.com/qameta/maven-unstable/</url>
-        </repository>
-    </repositories>
 
 </project>
