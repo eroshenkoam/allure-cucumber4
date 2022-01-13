@@ -38,7 +38,7 @@ public class AllureCucumber extends Cucumber {
 
     private Optional<Filter> getFilter(final FeatureRunner child) {
         final Optional<TestPlanV1_0> testPlan = new FileTestPlanSupplier().supply()
-                .map(TestPlanV1_0.class::isInstance)
+                .filter(TestPlanV1_0.class::isInstance)
                 .map(TestPlanV1_0.class::cast);
         try {
             final Object field = FieldUtils.readDeclaredField(child, CUCUMBER_FEATURE_FIELD, true);
